@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Django and Bootstrap website where users can create accounts and store notes, reminders etc. and perform general operations on their data (search, sort, CRUD)
+    " name="description">
+    <title>Textify</title>
+
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    <header>
+        <nav>
+            <span>Textify</span>
+            <form method="POST">
+                <input type="text" name="searchQuery">
+                <button>Search</button>
+            </form>
+            <ul id="nav-list">
+                <li>Profile</li>
+                <li>Refresh</li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
