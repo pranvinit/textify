@@ -11,6 +11,7 @@ body{
     min-height: 100vh;
 }
 
+
 #base_content{
     padding-top: 12vh;
     padding-bottom: 10vh;
@@ -68,7 +69,7 @@ nav{
 #nav_list{
     list-style: none;
     margin-bottom: 0;
-    width: 15%;
+    width: 250px;
     display: flex;
     justify-content: space-evenly;
 }
@@ -76,6 +77,20 @@ nav{
     font-size: 1.2em;
     font-weight: 600;
     cursor: pointer;
+}
+
+#socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 15vw;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+#socials a{
+    text-decoration: none;
+    color: #fff;
 }
 
 footer{

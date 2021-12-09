@@ -6,6 +6,7 @@
 {% endblock head %}
 
 {% block content %}
+<span id="texts_heading">Your Texts</span>
 <div id="text_grid">
     {% for text in text_list %}
     <a id="singletext_link" href="{% url 'textdetail' text.pk %}">
@@ -28,4 +29,9 @@
 </a>
     {% endfor %}
 </div>
+<a href="{% url 'textcreate' %}">
+    <div id="add_icon">
+        <span>+</span>
+    </div>
+</a>
 {% endblock content %}

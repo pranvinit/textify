@@ -3,6 +3,40 @@
     font-size: 2em;
     margin: 25px;
 }
+#add_icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 2;
+    bottom: 50px;
+    right: 50px;
+    background-color: #0d6efd;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#add_icon span{
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#texts_heading{
+    width: 250px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    margin: 25px auto;
+    font-size: 2em;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
 
 #singletext_link{
     text-decoration: none;
