@@ -16,7 +16,7 @@
 <body>
     <header>
         <nav>
-            <span id="logo_text">Textify</span>
+            <a id="logo_anchor" href="/"><span id="logo_text">Textify</span></a>   
             <img id="logo" src="{% static 'textifyapi/logo/logo.png' %}" alt="logo">
             <form method="POST" id="base_form">
                 <input type="text" name="searchQuery" placeholder="Search Texts..">
@@ -28,7 +28,7 @@
             </ul>
         </nav>
     </header>
-    <div id="content_container">
+    <div id="base_content">
         {% block content %}
         {% endblock content %}
     </div>

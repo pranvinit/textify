@@ -6,7 +6,9 @@
 {% endblock head %}
 
 {% block content %}
+<div id="text_grid">
     {% for text in text_list %}
+    <a id="singletext_link" href="{% url 'textdetail' text.pk %}">
     <div id="text_entry">
         <div id="title_container">
             <span>{{text.title}}</span>
@@ -15,12 +17,10 @@
             <span>{{text.user.name}}</span>
             <span>{{text.created_at}}</span>
             <span>{{text.updated_at}}</span>
-            <span>{{text.category}}</span>
+            <span>{{text.get_category_display}}</span>
         </div>
-        <div id="content_container">
-            {{text.content|safe}}
-        </div>
-            
     </div>
+</a>
     {% endfor %}
+</div>
 {% endblock content %}

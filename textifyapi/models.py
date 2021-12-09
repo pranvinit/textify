@@ -50,4 +50,4 @@ class Text(models.Model):
         return reverse_lazy("textlist")
     
     class Meta:
-        ordering = ["-pk"]
+        ordering = ["-created_at"]

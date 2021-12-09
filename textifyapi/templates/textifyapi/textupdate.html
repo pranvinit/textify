@@ -1,0 +1,17 @@
+{% extends 'textifyapi/base.html' %}
+{% load static %}
+
+{% block head %}
+    {% comment %} <link rel="stylesheet" href="{% static 'textifyapi/textupdate.css' %}" type="text/css" {% endcomment %}
+{% endblock head %}
+
+{% block content %}
+<span>Are you sure you want to update the text "{{object.title}}"</span>
+<form method="POST">
+    {% csrf_token %}
+    {{form.media}}
+    {{ form.as_p }}
+    <a href="{% url 'textdetail' object.pk %}"><button type="button" class="btn btn-outline-danger">Cancel</button></a>
+    <button type="submit" class="btn btn-outline-primary">Update</button>
+</form>
+{% endblock content %}

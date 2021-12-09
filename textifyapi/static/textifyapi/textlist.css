@@ -1,0 +1,33 @@
+#singletext_link{
+    text-decoration: none;
+    color: #000;
+}
+
+#text_grid{
+    display: grid;
+    box-sizing: border-box;
+    width: 90vw;
+    margin: 0 auto;
+    padding: 80px 50px;
+    grid-template: repeat(1, minmax(50px, auto))/repeat(auto-fit, minmax(300px, auto));
+    align-items: center;
+    justify-content: center;
+    grid-gap: 50px;
+    grid-auto-flow: dense;
+    grid-auto-rows: 300px;
+    background-color: #eeeef1;
+}
+
+#text_entry{
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: all 200ms linear;
+    cursor: pointer;
+}
+
+#text_entry:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-color: #4285F4;
+}
