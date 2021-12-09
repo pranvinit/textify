@@ -1,3 +1,9 @@
+#info_container{
+    display: block;
+    font-size: 2em;
+    margin: 25px;
+}
+
 #singletext_link{
     text-decoration: none;
     color: #000;
@@ -8,8 +14,9 @@
     box-sizing: border-box;
     width: 90vw;
     margin: 50px auto;
+    margin-top: 25px;
     padding: 80px 50px;
-    grid-template: repeat(1, minmax(50px, auto))/repeat(auto-fit, minmax(300px, auto));
+    grid-template: repeat(1, minmax(50px, auto))/repeat(auto-fit, minmax(300px, 0.5fr));
     align-items: center;
     justify-content: center;
     grid-gap: 50px;

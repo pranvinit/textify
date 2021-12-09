@@ -7,11 +7,9 @@
 
 {% block content %}
 {% if results|length == 0 %}
-<div id="info_container">
-    <span>No result found for "{{query}}"</span>
-</div>
+<span id="info_container">No result found for "{{query}}"</span>
 {% else %}
-<span>{{results|length}} results found for "{{query}}"</span>
+    <span id="info_container">{{results|length}} results found for "{{query}}"</span>
 <div id="text_grid">
     {% for text in results %}
     <a id="singletext_link" href="{% url 'textdetail' text.pk %}">
