@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.TextList.as_view(), name="textlist"),
+    path('search/', views.search, name="search"),
     path('text/<pk>', views.TextDetailView.as_view(), name="textdetail" ),
     path('textdelete/<pk>', views.TextDelete.as_view(), name="textdelete"),
     path('textupdate/<pk>', views.TextUpdate.as_view(), name="textupdate"),

@@ -7,7 +7,7 @@
 
 {% block content %}
 <span>Are you sure you want to update the text "{{object.title}}"</span>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.media}}
     {{ form.as_p }}

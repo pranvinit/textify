@@ -1,9 +1,19 @@
+from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .forms import TextCreateForm
 from .models import Text, User
+
+
+def search(request):
+    if request.method == "POST":
+        query = request.POST["searchQuery"]
+        results = Text.objects.filter(title__contains=query)
+        return render(request, "textifyapi/searchresults.html", { 'query': query ,'results': results})
+    else:
+        return render(request, "textifyapi/searchresults.html", {})
 
 class TextList(ListView):
     model = Text

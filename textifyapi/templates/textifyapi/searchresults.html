@@ -2,12 +2,18 @@
 {% load static %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'textifyapi/textlist.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'textifyapi/textlist.css' %}" type="text/css">
 {% endblock head %}
 
 {% block content %}
+{% if results|length == 0 %}
+<div id="info_container">
+    <span>No result found for "{{query}}"</span>
+</div>
+{% else %}
+<span>{{results|length}} results found for "{{query}}"</span>
 <div id="text_grid">
-    {% for text in text_list %}
+    {% for text in results %}
     <a id="singletext_link" href="{% url 'textdetail' text.pk %}">
     <div id="text_entry">
         <div id="title_container">
@@ -28,4 +34,5 @@
 </a>
     {% endfor %}
 </div>
+{% endif %}
 {% endblock content %}

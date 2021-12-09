@@ -36,8 +36,9 @@ class Text(models.Model):
     ]
     title = models.CharField(max_length=100, null=True, blank=True)
     content = RichTextField(null=True, blank=True)
-    category = models.CharField(max_length=2, choices=TEXT_CATEGORY)
-    severity = models.CharField(max_length=1, choices=TEXT_SEVERITY)
+    image = models.ImageField(upload_to="images/", blank=True, null=True)
+    category = models.CharField(max_length=2, choices=TEXT_CATEGORY, default="gn")
+    severity = models.CharField(max_length=1, choices=TEXT_SEVERITY, null=True, blank=True)
     pinned = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
