@@ -1,0 +1,16 @@
+{% extends 'textifyapi/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'textifyapi/textcreate.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{form.media}}
+    {{ form.as_p }}
+    <button type="button" class="btn btn-outline-danger">Cancel</button>
+    <button type="submit" class="btn btn-outline-primary">Add</button>
+</form>
+{% endblock content %}

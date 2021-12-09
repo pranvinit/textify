@@ -18,9 +18,9 @@
         <nav>
             <span id="logo_text">Textify</span>
             <img id="logo" src="{% static 'textifyapi/logo/logo.png' %}" alt="logo">
-            <form method="POST">
+            <form method="POST" id="base_form">
                 <input type="text" name="searchQuery" placeholder="Search Texts..">
-                <button type="button" class="btn btn-primary">Search</button>
+                <button type="button" class="btn btn-primary ms-3">Search</button>
             </form>
             <ul id="nav_list">
                 <li>Profile</li>
@@ -28,8 +28,10 @@
             </ul>
         </nav>
     </header>
-    {% block content %}
-    {% endblock content %}
+    <div id="content_container">
+        {% block content %}
+        {% endblock content %}
+    </div>
     <footer>
         <span>&copy; 2022 Textify &#8482; All rights reserved.</span>
     </footer>

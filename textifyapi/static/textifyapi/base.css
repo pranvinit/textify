@@ -5,6 +5,17 @@
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
+
+body{
+    position: relative;
+    min-height: 100vh;
+}
+
+#content_container{
+    padding-top: 12vh;
+    padding-bottom: 10vh;
+}
+
 nav{
     display: flex;
     align-items: center;
@@ -21,13 +32,13 @@ nav{
 }
 
 #logo_text{
-    margin: 0 20px;
+    margin-left: 20px;
     font-size: 1.5em;
     font-weight: 600;
     cursor: pointer;
 }
 
-form{
+#base_form{
     display: flex;
     align-items: center;
     margin: 0 auto;
@@ -35,7 +46,7 @@ form{
     height: 100%;
 }
 
-input{
+#base_form input{
     outline: none;
     border: none;
     padding-left: 15px;
@@ -45,16 +56,13 @@ input{
     border: 3px solid transparent;
     transition: all 200ms linear;
 }
-input:focus{
+#base_form input:focus{
     border-color: #4285F4;
-}
-button{
-    margin-left: 20px;
-    cursor: pointer;
 }
 
 #nav_list{
     list-style: none;
+    margin-bottom: 0;
     width: 15%;
     display: flex;
     justify-content: space-evenly;

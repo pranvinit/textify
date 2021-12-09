@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from ckeditor.fields import RichTextField
+from django.urls import reverse_lazy
 
 
 class User(models.Model):
@@ -45,5 +46,8 @@ class Text(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse_lazy("textlist")
+    
     class Meta:
-        ordering = ["created_at"]
+        ordering = ["-pk"]
