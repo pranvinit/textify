@@ -1,0 +1,26 @@
+{% extends 'textifyapi/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'textifyapi/textlist.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+    {% for text in text_list %}
+    <div id="text_entry">
+        <div id="title_container">
+            <span>{{text.title}}</span>
+        </div>
+        <div id="meta_container">
+            <span>{{text.user.name}}</span>
+            <span>{{text.created_at}}</span>
+            <span>{{text.updated_at}}</span>
+            <span>{{text.category}}</span>
+        </div>
+        <div id="content_container">
+            {{text.content|safe}}
+        </div>
+            
+    </div>
+    {% endfor %}
+{% endblock content %}

@@ -15,6 +15,7 @@ class User(models.Model):
     email = models.EmailField()
     username = models.CharField(max_length=10)
     password = models.CharField(max_length=10)
+    profile_pic = models.ImageField(null=True, blank=True, upload_to="php/")
 
     def __str__(self):
         return self.name
@@ -37,7 +38,7 @@ class Text(models.Model):
     category = models.CharField(max_length=2, choices=TEXT_CATEGORY)
     severity = models.CharField(max_length=1, choices=TEXT_SEVERITY)
     pinned = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
