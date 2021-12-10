@@ -3,6 +3,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'textifyapi/textlist.css' %}" type="text/css">
+    <script defer src="{% static 'textifyapi/index.js' %}"></script>
 {% endblock head %}
 
 {% block content %}
@@ -20,9 +21,23 @@
             <div class="meta_one">
                 <span>{{text.user.name}}</span>
                 <div class="text_options">
-                    <a class="pinanchor" href="{% url 'unpintext' text.id %}"><i class="fa fa-unlink fa-2x"></i></a>
+                    <a class="severityanchor" data-bs-toggle="collapse" href="#set_severity_{{text.id}}" role="button" aria-expanded="false" aria-controls="set_severity_{{text.id}}">
+                        <i class="fa fa-bolt fa-2x"></i>
+                    </a>
+                    <div class="unpin_text">
+                        <a class="unpinanchor" href="{% url 'unpintext' text.id %}"><i class="fa fa-unlink fa-2x"></i></a>
+                        <div class="unpin_info"><span>Unpin Text</span></div>
+                    </div>
                 </div>
             </div>
+            <div class="collapse" id="set_severity_{{text.id}}">
+                <div class="card card-body">
+                    <a href="{% url 'setseverity' 'none' text.id %}"><button type="button"  class="severity_btn btn btn-outline-primary">None</button></a>
+                    <a href="{% url 'setseverity' 'l' text.id %}"><button type="button"  class="severity_btn btn btn-outline-success">Low</button></a>
+                    <a href="{% url 'setseverity' 'm' text.id %}"><button type="button"  class="severity_btn btn btn-outline-warning">Moderate</button></a>
+                    <a href="{% url 'setseverity' 'h' text.id %}"><button type="button"  class="severity_btn btn btn-outline-danger">High</button></a>
+                </div>
+              </div>
             <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
             {% if text.image %}
             <div class="image_container">
@@ -33,6 +48,7 @@
                 <span>{{text.created_at}}</span>
                 <span>{{text.updated_at}}</span>
                 <span>{{text.get_category_display}}</span>
+                <span>{{text.get_severity_display}}</span>
             </div>
         </a>
         </div>
@@ -53,9 +69,25 @@
         <div class="meta_one">
             <span>{{text.user.name}}</span>
             <div class="text_options">
+            <a class="severityanchor" data-bs-toggle="collapse" href="#set_severity_{{text.id}}" role="button" aria-expanded="false" aria-controls="set_severity_{{text.id}}">
+                <i class="fa fa-bolt fa-2x"></i>
+              </a>
+            <div class="pin_text">
                 <a class="pinanchor" href="{% url 'pintext' text.id %}"><i class="fa fa-link fa-2x"></i></a>
+                <div class="pin_info"><span>Pin Text</span></div>
+            </div>
             </div>
         </div>
+
+        <div class="collapse" id="set_severity_{{text.id}}">
+            <div class="card card-body">
+                <a href="{% url 'setseverity' 'none' text.id %}"><button type="button"  class="severity_btn btn btn-outline-primary">None</button></a>
+                <a href="{% url 'setseverity' 'l' text.id %}"><button type="button"  class="severity_btn btn btn-outline-success">Low</button></a>
+                <a href="{% url 'setseverity' 'm' text.id %}"><button type="button"  class="severity_btn btn btn-outline-warning">Moderate</button></a>
+                <a href="{% url 'setseverity' 'h' text.id %}"><button type="button"  class="severity_btn btn btn-outline-danger">High</button></a>
+            </div>
+          </div>
+
     <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
         {% if text.image %}
         <div class="image_container">
@@ -66,6 +98,7 @@
             <span>{{text.created_at}}</span>
             <span>{{text.updated_at}}</span>
             <span>{{text.get_category_display}}</span>
+            <span>{{text.get_severity_display}}</span>
         </div>
     </a>
     </div>

@@ -11,4 +11,5 @@ urlpatterns = [
     path('signup/', views.SignUp.as_view(), name="signup"),
     path('pin/<pk>', views.pintext, name="pintext"),
     path('unpin/<pk>', views.unpintext, name="unpintext"),
+    path('setseverity/<slug:severity>/<int:pk>', views.setseverity, name="setseverity"),
 ]

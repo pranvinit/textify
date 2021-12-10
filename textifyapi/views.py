@@ -27,6 +27,15 @@ def unpintext(request, pk):
     text.save()
     return redirect(reverse_lazy("textlist"))
 
+def setseverity(request, severity, pk):
+    text = Text.objects.get(pk=pk)
+    if severity is not 'none':
+        text.severity = severity
+    else:
+        text.severity = None
+    text.save()
+    return redirect(reverse_lazy("textlist"))
+
 class TextList(ListView):
     model = Text
     template_name = "textifyapi/textlist.html"
