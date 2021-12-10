@@ -42,6 +42,9 @@
     text-decoration: none;
     color: #000;
 }
+.singletext_link:hover{
+    color: #000;
+}
 
 .text_grid{
     display: grid;
@@ -77,6 +80,13 @@
     border-color: #de5246;
 }
 
+.meta_one{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .image_container{
     width: 75%;
     margin: 10px 0;
@@ -89,4 +99,20 @@
     object-position: center;
     width: 100%;
     height: 100%;
+}
+
+.text_options{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pinanchor{
+    text-decoration: none;
+    color: #000;
+}
+.pinanchor:hover{
+    color: #000;
 }

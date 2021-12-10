@@ -10,24 +10,32 @@
 <div class="text_grid" id="pinned_text_grid">
     {% for text in text_list %}
     {% if text.pinned == True %}
-    <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
-        <div class="text_entry pinned_text_entry">
+    <div class="text_entry pinned_text_entry">
+        <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
             <div class="title_container">
                 <span>{{text.title}}</span>
             </div>
+        </a>
+
+            <div class="meta_one">
+                <span>{{text.user.name}}</span>
+                <div class="text_options">
+                    <a class="pinanchor" href="{% url 'unpintext' text.id %}"><i class="fa fa-unlink fa-2x"></i></a>
+                </div>
+            </div>
+            <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
             {% if text.image %}
             <div class="image_container">
                 <img src="{{text.image.url}}" alt="{{text.title}}">
             </div>
             {% endif %}
             <div class="meta_container">
-                <span>{{text.user.name}}</span>
                 <span>{{text.created_at}}</span>
                 <span>{{text.updated_at}}</span>
                 <span>{{text.get_category_display}}</span>
             </div>
+        </a>
         </div>
-    </a>
     {% endif %}
     {% endfor %}
 </div>
@@ -35,24 +43,32 @@
 <div class="text_grid">
     {% for text in text_list %}
     {% if text.pinned != True %}
-    <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
     <div class="text_entry">
+    <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
         <div class="title_container">
             <span>{{text.title}}</span>
         </div>
+    </a>
+        
+        <div class="meta_one">
+            <span>{{text.user.name}}</span>
+            <div class="text_options">
+                <a class="pinanchor" href="{% url 'pintext' text.id %}"><i class="fa fa-link fa-2x"></i></a>
+            </div>
+        </div>
+    <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
         {% if text.image %}
         <div class="image_container">
             <img src="{{text.image.url}}" alt="{{text.title}}">
         </div>
         {% endif %}
-        <div class="meta_container">
-            <span>{{text.user.name}}</span>
+        <div class="meta_two">
             <span>{{text.created_at}}</span>
             <span>{{text.updated_at}}</span>
             <span>{{text.get_category_display}}</span>
         </div>
+    </a>
     </div>
-</a>
 {% endif %}
     {% endfor %}
 </div>
