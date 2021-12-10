@@ -8,4 +8,5 @@ urlpatterns = [
     path('textdelete/<pk>', views.TextDelete.as_view(), name="textdelete"),
     path('textupdate/<pk>', views.TextUpdate.as_view(), name="textupdate"),
     path('create/', views.TextCreate.as_view(), name="textcreate"),
+    path('signup/', views.SignUp.as_view(), name="signup"),
 ]

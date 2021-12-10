@@ -10,19 +10,19 @@
 <span id="info_container">No result found for "{{query}}"</span>
 {% else %}
     <span id="info_container">{{results|length}} results found for "{{query}}"</span>
-<div id="text_grid">
+<div class="text_grid">
     {% for text in results %}
-    <a id="singletext_link" href="{% url 'textdetail' text.pk %}">
-    <div id="text_entry">
-        <div id="title_container">
+    <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
+    <div class="text_entry">
+        <div class="title_container">
             <span>{{text.title}}</span>
         </div>
         {% if text.image %}
-        <div id="image_container">
+        <div class="image_container">
             <img src="{{text.image.url}}" alt="{{text.title}}">
         </div>
         {% endif %}
-        <div id="meta_container">
+        <div class="meta_container">
             <span>{{text.user.name}}</span>
             <span>{{text.created_at}}</span>
             <span>{{text.updated_at}}</span>

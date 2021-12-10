@@ -6,20 +6,46 @@
 {% endblock head %}
 
 {% block content %}
-<span id="texts_heading">Your Texts</span>
-<div id="text_grid">
+<span class="texts_heading">Pinned Texts</span>
+<div class="text_grid" id="pinned_text_grid">
     {% for text in text_list %}
-    <a id="singletext_link" href="{% url 'textdetail' text.pk %}">
-    <div id="text_entry">
-        <div id="title_container">
+    {% if text.pinned == True %}
+    <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
+        <div class="text_entry pinned_text_entry">
+            <div class="title_container">
+                <span>{{text.title}}</span>
+            </div>
+            {% if text.image %}
+            <div class="image_container">
+                <img src="{{text.image.url}}" alt="{{text.title}}">
+            </div>
+            {% endif %}
+            <div class="meta_container">
+                <span>{{text.user.name}}</span>
+                <span>{{text.created_at}}</span>
+                <span>{{text.updated_at}}</span>
+                <span>{{text.get_category_display}}</span>
+            </div>
+        </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>
+<span class="texts_heading">Your Texts</span>
+<div class="text_grid">
+    {% for text in text_list %}
+    {% if text.pinned != True %}
+    <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
+    <div class="text_entry">
+        <div class="title_container">
             <span>{{text.title}}</span>
         </div>
         {% if text.image %}
-        <div id="image_container">
+        <div class="image_container">
             <img src="{{text.image.url}}" alt="{{text.title}}">
         </div>
         {% endif %}
-        <div id="meta_container">
+        <div class="meta_container">
             <span>{{text.user.name}}</span>
             <span>{{text.created_at}}</span>
             <span>{{text.updated_at}}</span>
@@ -27,8 +53,10 @@
         </div>
     </div>
 </a>
+{% endif %}
     {% endfor %}
 </div>
+
 <a href="{% url 'textcreate' %}">
     <div id="add_icon">
         <span>+</span>

@@ -1,0 +1,15 @@
+{% extends 'textifyapi/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'textifyapi/signup.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+<span>Fill the form to signup</span>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit">
+</form>
+{% endblock content %}

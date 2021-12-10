@@ -13,8 +13,8 @@ class User(models.Model):
     name = models.CharField(max_length=50)
     age = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
     gender = models.CharField(max_length=1 ,choices=GENDER_CHOICE)
-    email = models.EmailField()
     username = models.CharField(max_length=10)
+    email = models.EmailField()
     password = models.CharField(max_length=10)
     profile_pic = models.ImageField(null=True, blank=True, upload_to="php/")
 

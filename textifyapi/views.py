@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.models import User, AbstractBaseUser, UserManager
 from django.urls import reverse_lazy
 from .forms import TextCreateForm
 from .models import Text, User
@@ -38,3 +39,10 @@ class TextDelete(DeleteView):
 class TextDetailView(DetailView):
     model = Text
     template_name = "textifyapi/textdetail.html"
+
+class SignUp(CreateView, AbstractBaseUser):
+    objects = UserManager()
+    model = User
+    template_name = "registration/signup.html"
+    fields = "__all__"
+    success_url = reverse_lazy("textlist")

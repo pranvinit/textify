@@ -25,7 +25,7 @@
     font-weight: bold;
 }
 
-#texts_heading{
+.texts_heading{
     width: 250px;
     height: 60px;
     display: flex;
@@ -38,12 +38,12 @@
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
-#singletext_link{
+.singletext_link{
     text-decoration: none;
     color: #000;
 }
 
-#text_grid{
+.text_grid{
     display: grid;
     box-sizing: border-box;
     width: 90vw;
@@ -59,7 +59,7 @@
     background-color: #eeeef1;
 }
 
-#text_entry{
+.text_entry{
     background-color: #fff;
     padding: 25px;
     border-radius: 5px;
@@ -68,19 +68,23 @@
     cursor: pointer;
 }
 
-#text_entry:hover{
+.text_entry:hover{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-color: #4285F4;
 }
+.pinned_text_entry:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-color: #de5246;
+}
 
-#image_container{
+.image_container{
     width: 75%;
     margin: 10px 0;
     height: 50%;
     overflow: hidden;
 }
 
-#image_container img{
+.image_container img{
     object-fit: cover;
     object-position: center;
     width: 100%;

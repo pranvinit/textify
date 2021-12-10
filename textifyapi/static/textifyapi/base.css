@@ -69,7 +69,7 @@ nav{
 #nav_list{
     list-style: none;
     margin-bottom: 0;
-    width: 250px;
+    width: 350px;
     display: flex;
     justify-content: space-evenly;
 }
@@ -77,6 +77,11 @@ nav{
     font-size: 1.2em;
     font-weight: 600;
     cursor: pointer;
+}
+
+#nav_list li a{
+    text-decoration: none;
+    color: #fff;
 }
 
 #socials{
