@@ -1,25 +1,26 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import AbstractUser
 from django.urls import reverse_lazy
 
 
-class User(models.Model):
+class User(AbstractUser):
     GENDER_CHOICE = [
         ("m", "Male"),
         ("f", "Female"),
         ("o", "Other")
     ]
-    name = models.CharField(max_length=50)
-    age = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    gender = models.CharField(max_length=1 ,choices=GENDER_CHOICE)
-    username = models.CharField(max_length=10)
-    email = models.EmailField()
+    name = models.CharField(max_length=50, null=True, blank=True)
+    age = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)], null=True, blank=True)
+    gender = models.CharField(max_length=1 ,choices=GENDER_CHOICE, null=True, blank=True)
+    username = models.CharField(max_length=10, unique=True)
+    email = models.EmailField(unique=True)
     password = models.CharField(max_length=10)
     profile_pic = models.ImageField(null=True, blank=True, upload_to="php/")
 
     def __str__(self):
-        return self.name
+        return self.username
 
 class Text(models.Model):
     TEXT_CATEGORY = [
@@ -38,7 +39,7 @@ class Text(models.Model):
     content = RichTextField(null=True, blank=True)
     image = models.ImageField(upload_to="images/", blank=True, null=True)
     category = models.CharField(max_length=2, choices=TEXT_CATEGORY, default="gn")
-    severity = models.CharField(max_length=1, choices=TEXT_SEVERITY, null=True, blank=True, default="l")
+    severity = models.CharField(max_length=1, choices=TEXT_SEVERITY, null=True, blank=True, default=None)
     pinned = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

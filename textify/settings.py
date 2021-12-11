@@ -103,6 +103,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Sets the login and logout redirect url
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL =  '/login'
+
+# Handles Auth
+AUTH_USER_MODEL = 'textifyapi.User'
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 

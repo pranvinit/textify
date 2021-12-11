@@ -28,7 +28,11 @@
             <ul id="nav_list">
                 <li>Profile</li>
                 <li><a href="{% url 'textlist' %}">Refresh</a></li>
-                <li><a href="{% url 'signup' %}">Sign up</a></li>
+                {% if request.user.id %}
+                <li><a href="{% url 'logoutview' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>

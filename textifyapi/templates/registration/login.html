@@ -1,0 +1,18 @@
+{% extends 'textifyapi/base.html' %}
+{% load static %}
+
+{% block head %}
+{% comment %} <link rel="stylesheet" href="{% static 'textifyapi/login.css' %}" type="text/css"> {% endcomment %}
+{% endblock head %}
+
+{% block content %}
+<span>Fill the form to Login</span>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-outline-success">Login</button>
+</form>
+<div id="signup_option">
+    <a href="{% url 'signup' %}"><button type="button" class="btn btn-outline-primary">Sign up instead?</button></a>
+</div>
+{% endblock content %}

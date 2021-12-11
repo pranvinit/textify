@@ -1,0 +1,15 @@
+{% extends 'textifyapi/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'textifyapi/logout.css' %}" type="text/css">
+{% endblock head %}
+
+{% block content %}
+<span>Do you really want to logout of the site?</span>
+<span>Note: You will not be able to access any of your text</span>
+<div id="logout_options">
+    <a href="{% url 'textlist' %}"><button type="button" class="btn btn-outline-primary">Cancel</button></a>
+    <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">Logout</button></a>
+</div>
+{% endblock content %}
