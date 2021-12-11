@@ -6,17 +6,25 @@
 {% endblock head %}
 
 {% block content %}
-    <div id="single_text">
-        <span>{{object.title}}</span>
-        <span>Author: {{object.user.name}}</span>
-        <span>Created at: {{object.created_at}}</span>
-        <span>Updated at: {{object.updated_at}}</span>
-        <span>Category: {{object.get_category_display}}</span>
-        <span>{{object.content|safe}}</span>
-    </div>
-    <div id="options">
-        <a href="{% url 'textupdate' object.pk %}"><button type="button" class="btn btn-outline-warning mx-3">Edit</button></a>
-        <a href="{% url 'textdelete' object.pk %}"><button type="button" class="btn btn-outline-danger mx-3">Delete</button></a>
+    <div id="textdetail_container" >
+        <div class="is_blurred"></div>
+        <div id="single_text">
+            <a class="exitanchor" href="{% url 'textlist' %}">
+            <div id="exit_icon">
+                <i class="fa fa-times fa-2x"></i>
+            </div>
+            </a>
+            <span>{{object.title}}</span>
+            <span>Author: {{object.user.name}}</span>
+            <span>Created at: {{object.created_at}}</span>
+            <span>Updated at: {{object.updated_at}}</span>
+            <span>Category: {{object.get_category_display}}</span>
+            <span>{{object.content|safe}}</span>
+            <div id="options">
+                <a href="{% url 'textupdate' object.pk %}"><button type="button" class="btn btn-outline-warning mx-3">Edit</button></a>
+                <a href="{% url 'textdelete' object.pk %}"><button type="button" class="btn btn-outline-danger mx-3">Delete</button></a>
+            </div>
+        </div>
     </div>
 {% endblock content %}
 

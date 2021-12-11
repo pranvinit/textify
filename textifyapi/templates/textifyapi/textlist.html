@@ -11,7 +11,7 @@
 <div class="text_grid" id="pinned_text_grid">
     {% for text in text_list %}
     {% if text.pinned == True %}
-    <div class="text_entry pinned_text_entry">
+    <div class="text_entry pinned_text_entry {{text.severity}}" >
         <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
             <div class="title_container">
                 <span>{{text.title}}</span>
@@ -21,9 +21,12 @@
             <div class="meta_one">
                 <span>{{text.user.name}}</span>
                 <div class="text_options">
-                    <a class="severityanchor" data-bs-toggle="collapse" href="#set_severity_{{text.id}}" role="button" aria-expanded="false" aria-controls="set_severity_{{text.id}}">
-                        <i class="fa fa-bolt fa-2x"></i>
-                    </a>
+                    <div class="severity_option">
+                        <a class="severityanchor" data-bs-toggle="collapse" href="#set_severity_{{text.id}}" role="button" aria-expanded="false" aria-controls="set_severity_{{text.id}}">
+                            <i class="fa fa-bolt fa-2x"></i>
+                          </a>
+                        <div class="severity_info"><span>Set Severity</span></div>
+                    </div>
                     <div class="unpin_text">
                         <a class="unpinanchor" href="{% url 'unpintext' text.id %}"><i class="fa fa-unlink fa-2x"></i></a>
                         <div class="unpin_info"><span>Unpin Text</span></div>
@@ -59,7 +62,7 @@
 <div class="text_grid">
     {% for text in text_list %}
     {% if text.pinned != True %}
-    <div class="text_entry">
+    <div class="text_entry {{text.severity}}">
     <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
         <div class="title_container">
             <span>{{text.title}}</span>
@@ -69,9 +72,12 @@
         <div class="meta_one">
             <span>{{text.user.name}}</span>
             <div class="text_options">
-            <a class="severityanchor" data-bs-toggle="collapse" href="#set_severity_{{text.id}}" role="button" aria-expanded="false" aria-controls="set_severity_{{text.id}}">
-                <i class="fa fa-bolt fa-2x"></i>
-              </a>
+            <div class="severity_option">
+                <a class="severityanchor" data-bs-toggle="collapse" href="#set_severity_{{text.id}}" role="button" aria-expanded="false" aria-controls="set_severity_{{text.id}}">
+                    <i class="fa fa-bolt fa-2x"></i>
+                  </a>
+                <div class="severity_info"><span>Set Severity</span></div>
+            </div>
             <div class="pin_text">
                 <a class="pinanchor" href="{% url 'pintext' text.id %}"><i class="fa fa-link fa-2x"></i></a>
                 <div class="pin_info"><span>Pin Text</span></div>

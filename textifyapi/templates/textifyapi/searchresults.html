@@ -13,7 +13,7 @@
 <div class="text_grid">
     {% for text in results %}
     <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
-    <div class="text_entry">
+    <div class="text_entry {{text.severity}}">
         <div class="title_container">
             <span>{{text.title}}</span>
         </div>

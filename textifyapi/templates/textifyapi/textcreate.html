@@ -6,11 +6,18 @@
 {% endblock head %}
 
 {% block content %}
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.media}}
-    {{ form.as_p }}
-    <a href={% url 'textlist' %}><button type="button" class="btn btn-outline-danger">Cancel</button></a>
-    <button type="submit" class="btn btn-outline-primary">Add</button>
-</form>
+<div id="createform_heading">
+    <span>Fill the form to create a new text</span>
+</div>
+<div class="form-group" id="textcreate_form">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {{ form.as_p }}
+        <div id="createform_options">
+            <a href={% url 'textlist' %}><button type="button" class="btn btn-outline-danger w-100">Cancel</button></a>
+            <button type="submit" class="btn btn-outline-primary w-25">Add</button>
+        </div>
+    </form>
+</div>
 {% endblock content %}

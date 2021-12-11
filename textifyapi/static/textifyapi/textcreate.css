@@ -1,0 +1,24 @@
+#textcreate_form{
+    width: 50vw;
+    margin: 50px auto;
+    margin-top: 25px;
+}
+
+#createform_heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+}
+#createform_heading span{
+    font-size: 2.5em;
+    font-weight: 600;
+}
+#createform_options{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#createform_options a{
+    width: 25%;
+}
