@@ -2,16 +2,23 @@
 {% load static %}
 
 {% block head %}
-    {% comment %} <link rel="stylesheet" href="{% static 'textifyapi/textupdate.css' %}" type="text/css" {% endcomment %}
+    <link rel="stylesheet" href="{% static 'textifyapi/textupdate.css' %}" type="text/css"
 {% endblock head %}
 
 {% block content %}
-<span>Are you sure you want to update the text "{{object.title}}"</span>
+<div id="updateform_heading">
+    <span>Are you sure you want to update the text "{{object.title}}"</span>
+</div>
+
+<div class="form-group" id="textupdate_form">
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.media}}
     {{ form.as_p }}
-    <a href="{% url 'textdetail' object.pk %}"><button type="button" class="btn btn-outline-danger">Cancel</button></a>
-    <button type="submit" class="btn btn-outline-primary">Update</button>
+    <div id="updateform_options">
+        <a href="{% url 'textdetail' object.pk %}"><button type="button" class="btn btn-outline-danger w-100">Cancel</button></a>
+        <button type="submit" class="btn btn-outline-primary w-25">Update</button>
+    </div>
 </form>
+</div>
 {% endblock content %}

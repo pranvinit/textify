@@ -1,0 +1,25 @@
+#textupdate_form{
+    width: 50vw;
+    margin: 50px auto;
+    margin-top: 25px;
+}
+
+#updateform_heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px;
+}
+#updateform_heading span{
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+#updateform_options{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#updateform_options a{
+    width: 25%;
+}

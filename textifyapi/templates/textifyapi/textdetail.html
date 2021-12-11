@@ -16,6 +16,11 @@
             </a>
             <span>{{object.title}}</span>
             <span>Author: {{object.user.name}}</span>
+            {% if object.image %}
+            <div id="detail_image_container">
+                <img src="{{object.image.url}}" alt="{{object.title}}">
+            </div>
+            {% endif %}
             <span>Created at: {{object.created_at}}</span>
             <span>Updated at: {{object.updated_at}}</span>
             <span>Category: {{object.get_category_display}}</span>

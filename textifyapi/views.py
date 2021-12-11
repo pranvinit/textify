@@ -3,7 +3,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .forms import TextCreateForm
+from .forms import TextForm
 from .models import Text, User
 
 
@@ -42,13 +42,13 @@ class TextList(ListView):
 
 class TextCreate(CreateView):
     model = Text
-    form_class = TextCreateForm
+    form_class = TextForm
     template_name = "textifyapi/textcreate.html"
 
 class TextUpdate(UpdateView):
     model = Text
     template_name = "textifyapi/textupdate.html"
-    fields = "__all__"
+    form_class = TextForm
     success_url = reverse_lazy("textlist")
 
 class TextDelete(DeleteView):
