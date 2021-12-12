@@ -16,4 +16,7 @@ urlpatterns = [
     path('pin/<pk>', views.pintext, name="pintext"),
     path('unpin/<pk>', views.unpintext, name="unpintext"),
     path('setseverity/<slug:severity>/<int:pk>', views.setseverity, name="setseverity"),
+    path('profile/<pk>', views.ProfileView.as_view(), name="profiledetail"),
+    path('profileupdate/<pk>', views.ProfileUpdate.as_view(), name="profileupdate"),
+    path('profiledelete/<pk>', views.ProfileDelete.as_view(), name="profiledelete")
 ]

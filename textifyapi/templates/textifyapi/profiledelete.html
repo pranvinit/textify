@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'textifyapi/textdelete.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'textifyapi/profiledelete.css' %}" type="text/css">
 {% endblock head %}
 
 {% block content %}
 <div id="centered">
-    <span>Are you sure you want to delete the text: "{{object.title}}"</span>
+    <span>Are you sure you want to delete your account: {{object.username}}</span>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <a href="{% url 'textdetail' object.pk %}"><button type="button" class="btn btn-outline-danger mx-3">Cancel</button></a>
+        <a href="{% url 'profiledetail' object.pk %}"><button type="button" class="btn btn-outline-danger mx-3">Cancel</button></a>
         <button type="submit" class="btn btn-outline-primary mx-3">Delete</button>
     </form>
 </div>

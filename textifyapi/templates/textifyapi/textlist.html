@@ -7,10 +7,12 @@
 {% endblock head %}
 
 {% block content %}
+{% if  pinned_text_list|length == 0 %}
+<span class="wide_text_heading">No Pinned Texts</span>
+{% else %}
 <span class="texts_heading">Pinned Texts</span>
 <div class="text_grid" id="pinned_text_grid">
-    {% for text in text_list %}
-    {% if text.pinned == True %}
+    {% for text in pinned_text_list %}
     <div class="text_entry pinned_text_entry {{text.severity}}" >
         <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
             <div class="title_container">
@@ -54,14 +56,16 @@
                 <span>{{text.get_severity_display}}</span>
             </div>
         </a>
-        </div>
-    {% endif %}
+    </div>
     {% endfor %}
 </div>
+{% endif %}
+{% if text_list|length == 0 %}
+<span class="wide_text_heading">No Texts Saved</span>
+{% else %}
 <span class="texts_heading">Your Texts</span>
 <div class="text_grid">
     {% for text in text_list %}
-    {% if text.pinned != True %}
     <div class="text_entry {{text.severity}}">
     <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
         <div class="title_container">
@@ -108,9 +112,9 @@
         </div>
     </a>
     </div>
-{% endif %}
     {% endfor %}
 </div>
+{% endif %}
 
 <a href="{% url 'textcreate' %}">
     <div id="add_icon">

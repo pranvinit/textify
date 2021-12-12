@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import redirect, render
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -41,13 +42,19 @@ def userlogout(request):
 
 @login_required
 def textlist(request):
-    text_list = Text.objects.filter(user_id = request.user.id)
-    return render(request, 'textifyapi/textlist.html', {'text_list': text_list})
+    text_list = Text.objects.filter(user_id = request.user.id, pinned=False)
+    pinned_text_list = Text.objects.filter(user_id = request.user.id, pinned=True)
+    return render(request, 'textifyapi/textlist.html', {'text_list': text_list, 'pinned_text_list': pinned_text_list})
 
 
 class TextCreate(LoginRequiredMixin ,CreateView):
     model = Text
     form_class = TextForm
+    def form_valid(self, form):
+        user = User.objects.get(id = self.request.user.id)
+        form.instance.user = user
+        return super(TextCreate, self).form_valid(form)
+
     template_name = "textifyapi/textcreate.html"
 
 class TextUpdate(LoginRequiredMixin ,UpdateView):
@@ -71,5 +78,18 @@ class SignUp(CreateView):
     form_class = UserForm
     success_url = reverse_lazy("textlist")
 
+class ProfileView(LoginRequiredMixin, DetailView):
+    model = User
+    template_name = "textifyapi/profiledetail.html"
 
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = UserForm
+    template_name = "textifyapi/profileupdate.html"
+    success_url = reverse_lazy("textlist")
+
+class ProfileDelete(LoginRequiredMixin, DeleteView):
+    model = User
+    template_name = "textifyapi/profiledelete.html"
+    success_url = reverse_lazy("login")
 

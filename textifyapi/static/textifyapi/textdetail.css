@@ -59,8 +59,9 @@
     justify-content: center;
     margin: 20px 0;
 }
+
 #options button{
-    width: 100px;
+    width: 150px;
 }
 
 #detail_image_container{

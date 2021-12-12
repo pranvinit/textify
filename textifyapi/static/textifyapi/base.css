@@ -44,11 +44,21 @@ nav{
     cursor: pointer;
 }
 
+#welcome{
+    font-weight: 600;
+    font-size: 1.15em;
+    margin-left: 20px;
+
+}
+#login_redirect{
+    color: #fff;
+}
+
 #base_form{
     display: flex;
     align-items: center;
     margin: 0 auto;
-    width: 60%;
+    width: 50%;
     height: 100%;
 }
 
