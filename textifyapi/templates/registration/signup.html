@@ -2,14 +2,21 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'textifyapi/signup.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'textifyapi/account.css' %}" type="text/css">
 {% endblock head %}
 
 {% block content %}
-<span>Fill the form to signup</span>
+<div class="form-group profile_form">
+<div class="form_heading">
+    <span>Fill the form to signup</span>
+</div>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Submit">
+    <div class="profile_options">
+        <a href={% url 'login' %}><button type="button" class="btn btn-outline-danger">Cancel</button></a>
+        <button type="submit" class="btn btn-outline-primary">Add</button>
+    </div>
 </form>
+<div>
 {% endblock content %}

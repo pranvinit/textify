@@ -2,16 +2,22 @@
 {% load static %}
 
 {% block head %}
-<!-- <link rel="stylesheet" href="{% static 'textifyapi/profileupdate.css' %}" type="text/css"> -->
+<link rel="stylesheet" href="{% static 'textifyapi/account.css' %}" type="text/css">
 {% endblock head %}
 
 
 {% block content %}
-<span>Fill the form to update your profile</span>
+<div class="form-group profile_form">
+    <div class="form_heading">
+        <span>Fill the form to update your profile</span>
+    </div>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
-    <a href="{% url 'profiledetail' object.pk %}"><button type="button" class="btn btn-outline-danger">Cancel</button></a>
-    <button type="submit" class="btn btn-outline-primary">Update</button>
+    <div class="profile_options">
+        <a href={% url 'profiledetail' object.pk %}><button type="button" class="btn btn-outline-danger">Cancel</button></a>
+        <button type="submit" class="btn btn-outline-primary">Update</button>
+    </div>
 </form>
+</div>
 {% endblock content %}

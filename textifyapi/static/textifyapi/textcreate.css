@@ -19,6 +19,6 @@
     align-items: center;
     justify-content: space-evenly;
 }
-#createform_options a{
-    width: 25%;
+#createform_options button{
+    width: 250px;
 }

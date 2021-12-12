@@ -16,7 +16,7 @@ class User(AbstractUser):
     gender = models.CharField(max_length=1 ,choices=GENDER_CHOICE, null=True, blank=True)
     username = models.CharField(max_length=10, unique=True)
     email = models.EmailField(unique=True)
-    password = models.CharField(max_length=10)
+    password = models.CharField(max_length=20)
     profile_pic = models.ImageField(null=True, blank=True, upload_to="php/")
 
     def __str__(self):

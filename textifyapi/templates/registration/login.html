@@ -2,17 +2,23 @@
 {% load static %}
 
 {% block head %}
-{% comment %} <link rel="stylesheet" href="{% static 'textifyapi/login.css' %}" type="text/css"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'textifyapi/account.css' %}" type="text/css">
 {% endblock head %}
 
 {% block content %}
-<span>Fill the form to Login</span>
+<div class="form-group" id="login_form">
+<div class="form_heading">
+    <span >Fill the form to Login</span>
+</div>
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <button type="submit" class="btn btn-outline-success">Login</button>
+    <div id="loginform_option">
+        <button type="submit" class="btn btn-outline-success my-3">Login</button>
+    </div>
 </form>
-<div id="signup_option">
-    <a href="{% url 'signup' %}"><button type="button" class="btn btn-outline-primary">Sign up instead?</button></a>
+<div id="signup_instead">
+    <a href="{% url 'signup' %}"><button type="button" class="btn btn-outline-primary w-100 my-3">Sign up instead?</button></a>
+</div>
 </div>
 {% endblock content %}

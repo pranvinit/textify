@@ -1,6 +1,8 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
+
 from . import views
+from textifyapi.forms import UserLoginForm
 
 urlpatterns = [
     path('', views.textlist, name="textlist"),
@@ -10,7 +12,7 @@ urlpatterns = [
     path('textupdate/<pk>', views.TextUpdate.as_view(), name="textupdate"),
     path('create/', views.TextCreate.as_view(), name="textcreate"),
     path('signup/', views.SignUp.as_view(), name="signup"),
-    path('login/', auth_views.LoginView.as_view(), name="login"),
+    path('login/', auth_views.LoginView.as_view(template_name="registration/login.html", authentication_form = UserLoginForm), name="login"),
     path('logoutview/', views.userlogout, name="logoutview"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('pin/<pk>', views.pintext, name="pintext"),

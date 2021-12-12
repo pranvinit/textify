@@ -26,8 +26,8 @@
             <span>Category: {{object.get_category_display}}</span>
             <span>{{object.content|safe}}</span>
             <div id="options">
-                <a href="{% url 'textupdate' object.pk %}"><button type="button" class="btn btn-outline-warning mx-3">Edit</button></a>
-                <a href="{% url 'textdelete' object.pk %}"><button type="button" class="btn btn-outline-danger mx-3">Delete</button></a>
+                <a href="{% url 'textupdate' object.pk %}"><button type="button" class="btn btn-outline-warning">Edit</button></a>
+                <a href="{% url 'textdelete' object.pk %}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
             </div>
         </div>
     </div>
