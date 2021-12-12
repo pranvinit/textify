@@ -84,15 +84,38 @@
     border-color: #de5246;
 }
 
-.meta_one{
+.title_container span{
+    font-size: 1.75em;
+    font-weight: 600;
+}
+.meta_one, .meta_two{
     display: flex;
-    height: 40px;
+    height: 50px;
     align-items: center;
     justify-content: space-between;
 }
+.meta_one{
+    height: 125px;
+    cursor: initial;
+}
+
+.meta_one > span, .meta_two span{
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #495057;
+}
+
+.text_content{
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 250px;
+    overflow: hidden;
+}
+
 .text_options{
     position: relative;
-    width: 100px;
+    width: 75px;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -100,9 +123,8 @@
 }
 
 .image_container{
-    width: 75%;
-    margin: 10px 0;
-    height: 50%;
+    width: 25%;
+    max-height: 100%;
     overflow: hidden;
 }
 

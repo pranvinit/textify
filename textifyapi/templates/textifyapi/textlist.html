@@ -19,14 +19,18 @@
                 <span>{{text.title}}</span>
             </div>
         </a>
-
-            <div class="meta_one">
+        <div class="meta_one">
+                {% if text.image %}
+                <div class="image_container">
+                    <img src="{{text.image.url}}" alt="{{text.title}}">
+                </div>
+                {% endif %}
                 <span>{{text.user.name}}</span>
                 <div class="text_options">
                     <div class="severity_option">
                         <a class="severityanchor" data-bs-toggle="collapse" href="#set_severity_{{text.id}}" role="button" aria-expanded="false" aria-controls="set_severity_{{text.id}}">
                             <i class="fa fa-bolt fa-2x"></i>
-                          </a>
+                        </a>
                         <div class="severity_info"><span>Set Severity</span></div>
                     </div>
                     <div class="unpin_text">
@@ -42,18 +46,14 @@
                     <a href="{% url 'setseverity' 'm' text.id %}"><button type="button"  class="severity_btn btn btn-outline-warning">Moderate</button></a>
                     <a href="{% url 'setseverity' 'h' text.id %}"><button type="button"  class="severity_btn btn btn-outline-danger">High</button></a>
                 </div>
-              </div>
-            <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
-            {% if text.image %}
-            <div class="image_container">
-                <img src="{{text.image.url}}" alt="{{text.title}}">
             </div>
-            {% endif %}
-            <div class="meta_container">
+            <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
+            <div class="meta_two">
                 <span>{{text.created_at}}</span>
-                <span>{{text.updated_at}}</span>
                 <span>{{text.get_category_display}}</span>
-                <span>{{text.get_severity_display}}</span>
+            </div>
+            <div class="text_content">
+                <span>{{text.content|safe|truncatewords:10}}</span>
             </div>
         </a>
     </div>
@@ -74,6 +74,11 @@
     </a>
         
         <div class="meta_one">
+            {% if text.image %}
+            <div class="image_container">
+                <img src="{{text.image.url}}" alt="{{text.title}}">
+            </div>
+            {% endif %}
             <span>{{text.user.name}}</span>
             <div class="text_options">
             <div class="severity_option">
@@ -99,16 +104,12 @@
           </div>
 
     <a class="singletext_link" href="{% url 'textdetail' text.pk %}">
-        {% if text.image %}
-        <div class="image_container">
-            <img src="{{text.image.url}}" alt="{{text.title}}">
-        </div>
-        {% endif %}
         <div class="meta_two">
             <span>{{text.created_at}}</span>
-            <span>{{text.updated_at}}</span>
             <span>{{text.get_category_display}}</span>
-            <span>{{text.get_severity_display}}</span>
+        </div>
+        <div class="text_content">
+            <span>{{text.content|safe|truncatewords:10}}</span>
         </div>
     </a>
     </div>
